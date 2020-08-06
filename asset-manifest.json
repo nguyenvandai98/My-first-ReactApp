@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/My-first-ReactApp/static/css/main.bb522382.chunk.css",
+    "main.js": "/My-first-ReactApp/static/js/main.5daa59bb.chunk.js",
+    "main.js.map": "/My-first-ReactApp/static/js/main.5daa59bb.chunk.js.map",
+    "runtime-main.js": "/My-first-ReactApp/static/js/runtime-main.9493e629.js",
+    "runtime-main.js.map": "/My-first-ReactApp/static/js/runtime-main.9493e629.js.map",
+    "static/js/2.8ef49bf2.chunk.js": "/My-first-ReactApp/static/js/2.8ef49bf2.chunk.js",
+    "static/js/2.8ef49bf2.chunk.js.map": "/My-first-ReactApp/static/js/2.8ef49bf2.chunk.js.map",
+    "index.html": "/My-first-ReactApp/index.html",
+    "precache-manifest.eca701b5b8da887ca89c8bd3f414e6ca.js": "/My-first-ReactApp/precache-manifest.eca701b5b8da887ca89c8bd3f414e6ca.js",
+    "service-worker.js": "/My-first-ReactApp/service-worker.js",
+    "static/css/main.bb522382.chunk.css.map": "/My-first-ReactApp/static/css/main.bb522382.chunk.css.map",
+    "static/js/2.8ef49bf2.chunk.js.LICENSE.txt": "/My-first-ReactApp/static/js/2.8ef49bf2.chunk.js.LICENSE.txt",
+    "static/media/elegant-icons.css": "/My-first-ReactApp/static/media/ElegantIcons.fdd9e757.woff",
+    "static/media/blog-1.jpg": "/My-first-ReactApp/static/media/blog-1.0b30c541.jpg",
+    "static/media/blog-2.jpg": "/My-first-ReactApp/static/media/blog-2.813fcd93.jpg",
+    "static/media/blog-3.jpg": "/My-first-ReactApp/static/media/blog-3.aa2b3ae7.jpg",
+    "static/media/blog-4.jpg": "/My-first-ReactApp/static/media/blog-4.54a4aafb.jpg",
+    "static/media/blog-5.jpg": "/My-first-ReactApp/static/media/blog-5.bf7b2e55.jpg",
+    "static/media/blog-6.jpg": "/My-first-ReactApp/static/media/blog-6.767437ce.jpg",
+    "static/media/blog-detail-1.jpg": "/My-first-ReactApp/static/media/blog-detail-1.680b568b.jpg",
+    "static/media/blog-detail-2.jpg": "/My-first-ReactApp/static/media/blog-detail-2.63a5d564.jpg",
+    "static/media/blog-detail-3.jpg": "/My-first-ReactApp/static/media/blog-detail-3.222e3815.jpg",
+    "static/media/blog-detail.jpg": "/My-first-ReactApp/static/media/blog-detail.1d9a5953.jpg",
+    "static/media/font-awesome.min.css": "/My-first-ReactApp/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/next-blog.png": "/My-first-ReactApp/static/media/next-blog.f3e1f2c6.png",
+    "static/media/payment-method.png": "/My-first-ReactApp/static/media/payment-method.efe7b12a.png",
+    "static/media/post-by.png": "/My-first-ReactApp/static/media/post-by.966beb1e.png",
+    "static/media/product-1.jpg": "/My-first-ReactApp/static/media/product-1.006d0635.jpg",
+    "static/media/themify-icons.css": "/My-first-ReactApp/static/media/themify.e23a7dca.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9493e629.js",
+    "static/js/2.8ef49bf2.chunk.js",
+    "static/css/main.bb522382.chunk.css",
+    "static/js/main.5daa59bb.chunk.js"
+  ]
+}
