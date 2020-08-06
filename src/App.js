@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState ,useEffect} from 'react';
+import Routers from './routers'
+import apiRequest from './api/productAPI';
+import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 function App() {
+
+  const [products, setProducts] = useState([]);
+  const history =  useHistory();
+  useEffect(() => {
+    async function getProducts(){
+      try {
+        const {data} = await apiRequest.getAll();
+        console.log(data)
+        setProducts(data);
+      } catch (error) {
+        console.log('failed to request API: ',error)
+      }
+    }
+    getProducts();
+  }, [])
+  const onHandleRemove = async (id) => {
+    try {
+      const { data } = await apiRequest.remove(id);
+      const newProducts = products.filter(product => product.id !== data.id);
+      setProducts(newProducts);
+    } catch (error) {
+      console.log('failed to request API: ', error)
+    }
+  }
+  const onHandleAdd = async  (product) => {
+    try {
+      const { data } = await apiRequest.create(product);
+      setProducts([
+        ...products,
+        data
+      ])
+    } catch (error) {
+      console.log('failed to request API: ', error)
+    }
+  }
+
+  const onHandleUpdate = (updateProduct) => {
+    const newProducts = products.map(product => (
+      product.id === updateProduct.id ? updateProduct : product  // Nếu product.id bằng với id của sản phẩm vừa chỉnh sửa thì trả về mảng có object mới
+    ));
+    localStorage.setItem('products', JSON.stringify(newProducts))
+    setProducts(newProducts);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routers products={products} onRemove={onHandleRemove} onAdd={onHandleAdd} onUpdate={onHandleUpdate}/>
     </div>
-  );
-}
+  )
 
+}
 export default App;
