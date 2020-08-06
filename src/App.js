@@ -14,6 +14,7 @@ function App() {
         const {data} = await apiRequest.getAll();
         console.log(data)
         setProducts(data);
+        console.log(data)
       } catch (error) {
         console.log('failed to request API: ',error)
       }
