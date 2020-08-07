@@ -18,17 +18,31 @@ import { CheckOut } from "../components/Main/Check-out";
 import { SingleProduct } from "../components/Main/Single-product";
 import { Blog } from "../components/Main/Blog";
 import { BlogDetail } from "../components/Main/Blog-detail";
+import { Category } from "../pages/views/Admin/Category";
+import { AddCategory } from "../components/Admin/Category/AddCategory";
+import { UpdateCategory } from "../components/Admin/Category/UpdateCategory";
 
-const Routers = ({ products, onRemove, onAdd, onUpdate }) => {
-  const onHandleRemove = (id) => {
-    onRemove(id);
+const Routers = ({ products,categories,
+                   onRemoveProd, onAddProd, onUpdateProd,
+                   onRemoveCate, onAddCate, onUpdateCate }) => {
+  const onHandleRemoveProd = (id) => {
+    onRemoveProd(id);
   };
-  const HandleAdd = (product) => {
-    onAdd(product);
+  const onHandleAddProd = (product) => {
+    onAddProd(product);
   };
-  const onHandleUpdate = (product) =>{
-         onUpdate(product)
+  const onHandleUpdateProd = (product) =>{
+         onUpdateProd(product)
   }
+  const onHandleRemoveCate =(id)=>{
+   onRemoveCate(id)
+  }
+  const onHandleAddCate =(id)=>{
+    onAddCate(id)
+   }
+   const onHandleUpdateCate=(category) =>{
+     onUpdateCate(category)
+   }
   return (
     <Router>
       <Switch>
@@ -42,11 +56,11 @@ const Routers = ({ products, onRemove, onAdd, onUpdate }) => {
               <Route path="/admin/products">
                 <ProductsManager
                   products={products}
-                  onRemove={onHandleRemove}
+                  onRemoveProd={onHandleRemoveProd}
                 />
               </Route>
               <Route path="/admin/categories">
-
+                   <Category categories={categories} onRemoveCate={onHandleRemoveCate}/>
               </Route>
             </Switch>
           </LayoutAdmin>
@@ -56,10 +70,10 @@ const Routers = ({ products, onRemove, onAdd, onUpdate }) => {
           <LayoutAdmin>
             <Switch>
               <Route path="/admin/product/add">
-                <AddProduct onAdd={HandleAdd} />
+                <AddProduct onAddProd={onHandleAddProd} />
               </Route>
               <Route path="/admin/product/:id">
-                <DetailProduct products={products} updateProduct={onHandleUpdate} />
+                <DetailProduct products={products} updateProduct={onHandleUpdateProd} />
               </Route>
             </Switch>
           </LayoutAdmin>
@@ -68,7 +82,10 @@ const Routers = ({ products, onRemove, onAdd, onUpdate }) => {
            <LayoutAdmin>
              <Switch>
                <Route path="/admin/category/add">
-                     
+               <AddCategory onAddCate={onHandleAddCate}/>
+               </Route>
+               <Route path="/admin/category/:id">
+               <UpdateCategory categories={categories} onUpdateCate={onHandleUpdateCate}/>
                </Route>
              </Switch>
            </LayoutAdmin>

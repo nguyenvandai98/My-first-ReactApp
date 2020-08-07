@@ -1,6 +1,18 @@
 import React from 'react'
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 
-export const AddCategory = () => {
+export const AddCategory = ({onAddCate}) => {
+  const {register, handleSubmit, watch, errors }= useForm()
+    const history =  useHistory();
+   const onSubmit = data=>{
+    const newData = {
+      id: Math.random().toString(36).substr(2, 9),
+      ...data
+  }
+ onAddCate(newData);
+ history.push('/admin/categories')
+}
     return (
         <div>
  <div className="card">
@@ -22,13 +34,13 @@ export const AddCategory = () => {
               </div>
               <button type="submit" className="btn btn-primary">save</button>
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
                 <img id="selectImage" alt="image" src={File} width="300px" height="300px" />
                 <input type="file" className="form-control" id="img" name="image" aria-describedby="imagehelp" accept="image/*" ref={register} onChange={(event)=>{return(
                   onChangeImg(event)
                   )}}/>
                 <small id="imagehelp" className="form-text text-muted">Photo size is less than 1MB</small>
-              </div>
+              </div> */}
 
           </form>
         </div>

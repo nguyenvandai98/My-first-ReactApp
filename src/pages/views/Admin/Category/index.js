@@ -1,23 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-export const Category = ({categories}) => {
+
+export const Category = ({categories, onRemoveCate}) => {
+  const removeHandle = async (id) =>{
+
+     onRemoveCate(id)
+  }
     return (
         <div>
         <main>
       <div className="container-fluid">
-        <h1 className="mt-4">Product</h1>
+        <h1 className="mt-4">Categories</h1>
         <ol className="breadcrumb mb-4">
           <li className="breadcrumb-item">
             <a href="index.html">Dashboard</a>
           </li>
-          <li className="breadcrumb-item active">Product</li>
+          <li className="breadcrumb-item active">Categories</li>
         </ol>
 
         <div className="card"></div>
         <div className="card mb-4">
           <div className="card-header">
             <i className="fas fa-table mr-1" />
-            Product List
+            Categories List
           </div>
           <div className="card-body">
             <div className="table-responsive">
@@ -33,8 +39,8 @@ export const Category = ({categories}) => {
                   <tr>
                     <th>#</th>
                     <th>name</th>
-                    <th>image</th>
-                    <th>price</th>
+                    <th>amount products</th>
+                    <th>description</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -42,14 +48,13 @@ export const Category = ({categories}) => {
                   <tr>
                     <th>#</th>
                     <th>name</th>
-                    <th>image</th>
-                    <th>price</th>
-                    <th>status</th>
+                    <th>amount products</th>
+                    <th>description</th>
                     <th></th>
                   </tr>
                 </tfoot>
                 <tbody>
-                  {categories.map(({ id, name, image, price,status }, index) => {
+                  {categories.map(({ id, name, description }, index) => {
                     return (
                       <tr key={index}>
                         <td>{index}</td>
@@ -57,13 +62,14 @@ export const Category = ({categories}) => {
                    {name}
                         </td>
                         <td>
-                          <img src={image} width="100px" height="100px"></img>
+                          9999
                         </td>
-                        <td>{price}$</td>
-                        <td>{status ? 'in Stock':'out Stock'}</td>
+                        <td>
+                          {description}
+                        </td>
                         <td>
                           <div>
-                          <Link to={'/admin/product/'+ id }
+                          <Link to={'/admin/category/'+ id }
                               className="btn btn-primary">
                               Edit
                             </Link>

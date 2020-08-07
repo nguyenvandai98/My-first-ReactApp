@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
-const ProductsManager = ({ products, onRemove }) => {
+const ProductsManager = ({ products, onRemoveProd }) => {
     const removeHandle = (id) => {
-        onRemove(id)
+        onRemoveProd(id)
     }
     return (
         <div>

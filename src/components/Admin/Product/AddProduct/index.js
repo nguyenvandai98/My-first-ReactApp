@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { storage } from 'firebase';
+import { firebase } from 'firebase';
 
-export const AddProduct = ({onAdd}) => {
+export const AddProduct = ({onAddProd}) => {
+
     const [prod, setProd] = useState({})
     const [File,setFile] = useState();
     const [Image,setImage] = useState(null);
@@ -14,11 +15,11 @@ export const AddProduct = ({onAdd}) => {
       id: Math.random().toString(36).substr(2, 9),
       ...data
   }
-       onAdd(newData);
+       onAddProd(newData);
        history.push('/admin/products');
        if(Image !=null){
 
-             const uploadTask = storage.ref(`images/${Image.name}`).put(Image);
+             const uploadTask = firebase.storage().ref(`images/${Image.name}`).put(Image);
              uploadTask.on(
                "state_changed",
                snapshot =>{},
@@ -26,7 +27,7 @@ export const AddProduct = ({onAdd}) => {
                  console.log(error);
                },
                ()=>{
-                 storage
+                 firebase.storage()
                      .ref("images")
                      .child(Image.name)
                      .getDownloadURL()
